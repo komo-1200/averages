@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="averages.css">
+</head>
+<body>
+    <div id="box">
+        <p>enter three numbers, then enter<br> submit to calculate the average.</p>
+        <div id="inputs">
+            <input type="number" id="numInput1" placeholder="enter your first number"><br><br>
+            <input type="number" id="numInput2" placeholder="enter your second number"><br><br>
+            <input type="number" id="numInput3" placeholder="enter your third number"><br><br>
+        </div>
+        <div id="button">
+            <button id="submitBtn">Submit</button>
+        </div>
+        <div id="result">
+            <p id="resultId"></p>
+        </div>
+    </div>
+
+<script>
+    document.getElementById('submitBtn').addEventListener('click', () => {
+        const numbers = [
+            document.getElementById('numInput1').value,
+            document.getElementById('numInput2').value,
+            document.getElementById('numInput3').value,
+        ].map(Number);
+
+        const average = numbers.reduce((sum, n)=>sum + n, 0)/numbers.length;
+        document.getElementById('resultId').textContent = average.toFixed(2);
+    });
+</script>
+</body>
+</html>
